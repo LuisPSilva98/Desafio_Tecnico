@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: api_consulta_credito
+    datasource:
+        url: jdbc:postgresql://localhost:5432/creditdb
+        username: admin
+        password: admin
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+kafka:
+    bootstrap-servers: 127.0.0.1:9091
+
+credito:
+    log-topico: creditoRequestLog
+
+          
