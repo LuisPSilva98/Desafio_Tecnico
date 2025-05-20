@@ -1,0 +1,56 @@
+
+$header-bg: #007aff;
+$footer-bg: #333;
+$text-white: white;
+$body-bg: #f4f6f8;
+$text-dark: #333;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+$font-size-h1-lg: 2.2rem;
+$font-size-h1-md: 1.8rem;
+$font-size-h1-sm: 1.5rem;
+$font-size-footer: 0.9rem;
+
+@mixin header-responsive-h1($size) {
+  .app-header h1 {
+    font-size: $size;
+  }
+}
+
+.app-header {
+  background-color: $header-bg;
+  padding: 20px;
+  color: $text-white;
+  text-align: center; 
+  box-shadow: 0 2px 4px $shadow-color;
+
+  h1 {
+    margin: 0;
+    font-size: $font-size-h1-lg;
+  }
+}
+
+main {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: $body-bg;
+  color: $text-dark;
+}
+
+@media (max-width: 768px) {
+  @include header-responsive-h1($font-size-h1-md);
+  main {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  @include header-responsive-h1($font-size-h1-sm);
+}

@@ -1,0 +1,19 @@
+<div class="search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+    <div class="search-input-group">
+      <input type="text" formControlName="searchTerm" placeholder="Digite o número para buscar..." class="search-input" (keyup.enter)="onSearch()">
+      <button type="submit" class="search-button">Buscar</button>
+    </div>
+
+    <div class="search-type-toggle">
+      <label>
+        <input type="radio" formControlName="searchType" value="numeroNfse">
+        <span>Buscar por NFSE</span>
+      </label>
+      <label>
+        <input type="radio" formControlName="searchType" value="numeroCredito">
+        <span>Buscar por Crédito</span>
+      </label>
+    </div>
+  </form>
+</div>

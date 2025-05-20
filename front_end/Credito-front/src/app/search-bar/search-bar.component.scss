@@ -1,0 +1,126 @@
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+$background-light: #f0f2f5;
+$border-color: #e0e0e0;
+$text-dark: #333;
+$text-light: #888;
+$white: #fff;
+$padding-base: 12px;
+$padding-small: 10px;
+$border-radius: 8px;
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$transition-speed: 0.2s;
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: $background-light;
+  border-bottom: 1px solid $border-color;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  max-width: 600px;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  overflow: hidden;
+  background-color: $white; 
+
+  .search-input-group {
+    display: flex;
+    width: 100%;
+  }
+
+  .search-input {
+    flex-grow: 1;
+    padding: $padding-base 15px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: $text-dark;
+
+    &::placeholder {
+      color: $text-light;
+    }
+  }
+
+  .search-button {
+    background-color: $primary-color;
+    color: $white;
+    padding: $padding-base 20px;
+    border: none;
+    border-radius: 0; 
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color $transition-speed ease-in-out;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+
+  .search-type-toggle {
+    display: flex;
+    justify-content: center;
+    padding: $padding-small;
+    background-color: lighten($background-light, 3%); 
+    border-top: 1px solid $border-color;
+    border-radius: 0 0 $border-radius $border-radius; 
+
+    label {
+      margin: 0 15px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: $text-dark;
+      font-size: 0.9rem;
+
+      input[type="radio"] {
+        margin-right: 8px;
+        &:checked + span {
+          font-weight: bold;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+@mixin mobile-styles {
+  .search-form {
+    max-width: 90%;
+    border-radius: $border-radius; 
+
+    .search-input-group {
+      flex-direction: column; 
+    }
+
+    .search-input {
+      border-radius: $border-radius $border-radius 0 0;
+      padding: $padding-small 12px;
+    }
+
+    .search-button {
+      width: 100%;
+      border-radius: 0; 
+      padding: $padding-small 12px;
+    }
+
+    .search-type-toggle {
+      flex-direction: column;
+      border-radius: 0 0 $border-radius $border-radius;
+      padding: $padding-small;
+      label {
+        margin: 5px 0;
+      }
+    }
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  @include mobile-styles;
+}
